@@ -6,11 +6,14 @@ const app = express() // creates a instance of server
 // 1. the route: like /ali, /about, /hi
 // 2. the function that will run when we get the request
 console.log(__dirname)
-app.get('/ali',(request, response)=>{
+app.get('/',(request, response)=>{
     console.log('Request sent to Ali Route')
     response.sendFile(__dirname + '/views/student.html')
 })
 
+app.get('/about',(req,res)=>{
+    res.sendFile(__dirname + '/views/about-me.html')
+})
 
 // Exercise 1:
 // 1. Create a about-me.html file in your views folder
@@ -20,4 +23,6 @@ app.get('/ali',(request, response)=>{
 
 
 
-app.listen(3000)
+app.listen(3000,() => {
+    console.log('Application running')
+})
